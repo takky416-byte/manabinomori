@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
 <title>まなびのもり</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -1080,7 +1084,8 @@
   }
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yusei+Magic&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap">
-
+</head>
+<body>
 <div class="app">
 
   <!-- top bar (persistent) -->
@@ -1097,10 +1102,11 @@
       </div>
     </div>
     <div style="display:flex;align-items:center;gap:8px;">
-      <button class="icon-btn" id="btn-export-data" aria-label="きろくを ほぞんする" title="きろくを ほぞんする">
+      <!-- 引継ぎボタンを非表示化 (hidden 属性を追加) -->
+      <button class="icon-btn" id="btn-export-data" aria-label="きろくを ほぞんする" title="きろくを ほぞんする" hidden>
         <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l-4-4m4 4l4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 17v2a2 2 0 002 2h10a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
       </button>
-      <button class="icon-btn" id="btn-import-data" aria-label="きろくを よみこむ" title="きろくを よみこむ">
+      <button class="icon-btn" id="btn-import-data" aria-label="きろくを よみこむ" title="きろくを よみこむ" hidden>
         <svg viewBox="0 0 24 24" fill="none"><path d="M12 15V3m0 12l-4-4m4 4l4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 17v2a2 2 0 002 2h10a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
       </button>
       <button class="icon-btn" id="btn-sound-toggle" aria-label="おとの きりかえ" aria-pressed="true"></button>
@@ -1384,9 +1390,8 @@
         <button type="button" class="btn-primary" id="btn-gacha-complete-close" style="border-radius:14px;padding:10px 22px;">やったー！</button>
       </div>
     </div>
-  </section>
 
-  <div class="data-modal-overlay" id="data-modal-overlay" hidden>
+    <div class="data-modal-overlay" id="data-modal-overlay" hidden>
       <div class="data-modal-card">
         <h3 class="data-modal-title" id="data-modal-title">きろくの ほぞん</h3>
 
@@ -1414,7 +1419,8 @@
           <button type="button" class="btn-secondary" id="btn-data-modal-close">とじる</button>
         </div>
       </div>
-  </div>
+    </div>
+  </section>
 
 </div>
 
@@ -2069,7 +2075,7 @@
     }).join("");
     var summary = "🪙 かぶりボーナス ごうけい +" + totalDupBonus + "コイン";
     if(completionBonus > 0){
-      summary += "　🏆 コンプリートボーナス +" + completionBonus + "コイン";
+      summary += " 🏆 コンプリートボーナス +" + completionBonus + "コイン";
     }
     document.getElementById("gacha-multi-summary").textContent = summary;
     var overlay = document.getElementById("gacha-multi-overlay");
@@ -2715,7 +2721,7 @@
     quiz.inputBuf = "";
     updateDots();
     document.getElementById("quiz-label").textContent =
-      SUBJECT_META[quiz.subject].name + "　" + (quiz.index+1) + " / " + TOTAL_Q;
+      SUBJECT_META[quiz.subject].name + " " + (quiz.index+1) + " / " + TOTAL_Q;
 
     var mathQ = document.getElementById("math-question");
     var kanjiQ = document.getElementById("kanji-question");
@@ -3024,3 +3030,5 @@
 
 })();
 </script>
+</body>
+</html>
